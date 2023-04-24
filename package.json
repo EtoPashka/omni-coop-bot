@@ -1,0 +1,20 @@
+{
+  "name": "ncoop",
+  "version": "1.0.0",
+  "description": "Nikke coop bot for Omni ig",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "EtoPashka",
+  "license": "ISC",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.40",
+    "discord.js": "^14.9.0",
+    "dotenv": "^16.0.3",
+    "mongoose": "^7.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0"
+  }
+}
