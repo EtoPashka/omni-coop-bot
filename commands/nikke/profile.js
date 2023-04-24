@@ -5,13 +5,16 @@ const Canvas = require('@napi-rs/canvas');
 // the res of the profile image
 const iWidth = 500;
 const iHeight = 300;
+const path = require('node:path');
+const abyssResPath = path.join(__dirname, 'Noto');
+Canvas.GlobalFonts.registerFromPath(path.join(abyssResPath, 'NotoSans-Light.ttf'), 'Noto Sans');
 // resizing the text if it's too wide for the image
 const applyText = (canvas, text) => {
 	const context = canvas.getContext('2d');
 	let fontSize = 40;
-	context.font = '40px Arial';
+	context.font = '40px Noto Sans';
 	while (context.measureText(text).width > 300) {
-		context.font = `${fontSize -= 1}px Arial`;
+		context.font = `${fontSize -= 1}px Noto Sans`;
 	}
 	return context.font;
 };
@@ -117,12 +120,12 @@ function GridOfSquircles(context, start_x, start_y, x_num, y_num, cell_size, spa
 				context.fill();
 				context.stroke();
 				context.fillStyle = '#f8ab2b';
-				context.font = '14px Arial';
+				context.font = '14px Noto Sans';
 				const ol = String(character.ol);
 				const olWidth = context.measureText(ol).width;
 				context.fillText(ol, x + cell_size - 5 - olWidth / 2, y + cell_size);
 				// circles for nikke skills' levels
-				context.font = '12px Arial';
+				context.font = '12px Noto Sans';
 				for (let c = 0; c < 3; c++) {
 					context.fillStyle = 'rgba(0, 0, 0, 1)';
 					Circle(context, x, y + 4 + c * (2 + 16), 16);
