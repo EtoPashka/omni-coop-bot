@@ -6,15 +6,16 @@ const Canvas = require('@napi-rs/canvas');
 const iWidth = 500;
 const iHeight = 300;
 const path = require('node:path');
-const abyssResPath = path.join(__dirname, 'Noto');
-Canvas.GlobalFonts.registerFromPath(path.join(abyssResPath, 'NotoSans-Light.ttf'), 'Noto Sans');
+const fontsPath = path.join(__dirname, 'fonts');
+Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'NotoSans-Light.ttf'), 'Noto Sans');
+Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'zh-cn.ttf'), 'HYWenHei');
 // resizing the text if it's too wide for the image
 const applyText = (canvas, text) => {
 	const context = canvas.getContext('2d');
 	let fontSize = 40;
-	context.font = '40px Noto Sans';
+	context.font = '40px HYWenHei';
 	while (context.measureText(text).width > 300) {
-		context.font = `${fontSize -= 1}px Noto Sans`;
+		context.font = `${fontSize -= 1}px HYWenHei`;
 	}
 	return context.font;
 };
