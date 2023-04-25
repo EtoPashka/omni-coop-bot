@@ -26,7 +26,7 @@ module.exports = {
                 '**1.** Skills\' levels;\n**2.** Number of OL gear equipped.\n' +
                 '*CD: 5 seconds.*\n' },
 			)
-			.setImage('https://i.ibb.co/6wpX4ML/profile-guide.png');
+			.setImage('https://i.ibb.co/6rjxt1s/profile-guide.png');
 		await interaction.reply({
 			content: `<@${interaction.user.id}>`,
 			embeds: [helpEmbed],
