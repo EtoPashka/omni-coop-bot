@@ -4,6 +4,7 @@ const userInfo = require('./db/database.js');
 
 
 module.exports = {
+	cooldown: 5,
 	data: new SlashCommandBuilder()
 		.setName('set')
 		.setDescription('Set a fancy theme to your profile')

@@ -5,7 +5,7 @@ const { nikkeList } = require('./nikkedata.json');
 const nikkeNames = nikkeList.map(char => char.name);
 
 module.exports = {
-	cooldown: 15,
+	cooldown: 10,
 	data: new SlashCommandBuilder()
 		.setName('who')
 		.setDescription('Shows the list of users')

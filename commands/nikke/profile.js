@@ -23,7 +23,7 @@ const applyText = (canvas, text) => {
 };
 
 module.exports = {
-	cooldown: 10,
+	cooldown: 5,
 	data: new SlashCommandBuilder()
 		.setName('profile')
 		.setDescription('Get info about yourself or another user')
