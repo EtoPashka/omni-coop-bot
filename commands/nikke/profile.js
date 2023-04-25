@@ -1,5 +1,7 @@
 const { SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
 const { request } = require('undici');
+const { themes } = require('./themes.json');
+const defaultTheme = 'Guillotine (Purple)';
 const userInfo = require('./db/database.js');
 const Canvas = require('@napi-rs/canvas');
 // the res of the profile image
@@ -7,7 +9,8 @@ const iWidth = 500;
 const iHeight = 300;
 const path = require('node:path');
 const fontsPath = path.join(__dirname, 'fonts');
-Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'NotoSansHK-Light.otf'), 'noto-sans');
+Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'NotoSansHK-Bold.otf'), 'noto-sans');
+Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'BOMBARD_.ttf'), 'bomb');
 // resizing the text if it's too wide for the image
 const applyText = (canvas, text) => {
 	const context = canvas.getContext('2d');
@@ -33,7 +36,19 @@ module.exports = {
 			return interaction.reply({ content: `<@${user.id}> doesn't have a profile!`, ephemeral: true });
 		}
 		const member = interaction.guild.members.cache.find(u => u.id === user.id);
-
+		// getting style info
+		// const colors = ['#d3790e', '#f8ab2b'];
+		let bg;
+		let colors = [];
+		if (userData.theme.bg && userData.theme.stroke && userData.theme.text) {
+			colors = [userData.theme.stroke, userData.theme.text];
+			bg = userData.theme.bg;
+		}
+		else {
+			const theme = themes.find(t => t.name === defaultTheme);
+			colors = [theme.stroke, theme.text];
+			bg = theme.bg;
+		}
 		const charData = userData.characters;
 		const canvas = Canvas.createCanvas(iWidth, iHeight);
 		const context = canvas.getContext('2d');
@@ -44,10 +59,10 @@ module.exports = {
 			images.push(image);
 		}
 		// create image with bg
-		const background = await Canvas.loadImage(`${__dirname}/images/bg.png`);
+		const background = await Canvas.loadImage(`${__dirname}/images/${bg}`);
 		context.drawImage(background, 0, 0, canvas.width, canvas.height);
 		context.fillStyle = 'rgba(0, 0, 0, 0.7)';
-		context.strokeStyle = '#d3790e';
+		context.strokeStyle = colors[0];
 		// member avatar placing and adding status
 		context.save();
 		Circle(context, 30, 170, 100);
@@ -63,12 +78,12 @@ module.exports = {
 		context.stroke();
 		// grid (with characters) placing
 		context.lineWidth = 1;
-		GridOfSquircles(context, 180, 60, 4, 3, 60, 20, 20, charData, images);
+		GridOfSquircles(context, 180, 60, 4, 3, 60, 20, 20, charData, images, colors);
 		// member name placing
 		context.font = applyText(canvas, member.displayName);
 		context.fillStyle = '#000000';
 		context.fillText(member.displayName, 172, 42);
-		context.fillStyle = '#f8ab2b';
+		context.fillStyle = colors[1];
 		context.fillText(member.displayName, 170, 40);
 
 		const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'profile-image.png' });
@@ -95,10 +110,10 @@ function Circle(context, x, y, size) {
 	context.closePath();
 }
 // megafunction xD
-function GridOfSquircles(context, start_x, start_y, x_num, y_num, cell_size, space_x, space_y, charData, images) {
+function GridOfSquircles(context, start_x, start_y, x_num, y_num, cell_size, space_x, space_y, charData, images, colors) {
 	// set cell fill style and stroke style
 	context.fillStyle = 'rgba(0, 0, 0, 0.7)';
-	context.strokeStyle = '#d3790e';
+	context.strokeStyle = colors[0];
 	for (let i = 0, k = 0; i < y_num; i++) {
 		for (let j = 0; j < x_num; j++, k++) {
 			const x = start_x + j * (cell_size + space_x);
@@ -119,19 +134,19 @@ function GridOfSquircles(context, start_x, start_y, x_num, y_num, cell_size, spa
 				context.fillStyle = 'rgba(0, 0, 0, 1)';
 				context.fill();
 				context.stroke();
-				context.fillStyle = '#f8ab2b';
-				context.font = '14px noto-sans';
+				context.fillStyle = colors[1];
+				context.font = '16px bomb';
 				const ol = String(character.ol);
 				const olWidth = context.measureText(ol).width;
 				context.fillText(ol, x + cell_size - 5 - olWidth / 2, y + cell_size);
 				// circles for nikke skills' levels
-				context.font = '12px noto-sans';
+				context.font = '14px bomb';
 				for (let c = 0; c < 3; c++) {
 					context.fillStyle = 'rgba(0, 0, 0, 1)';
 					Circle(context, x, y + 4 + c * (2 + 16), 16);
 					context.fill();
 					context.stroke();
-					context.fillStyle = '#f8ab2b';
+					context.fillStyle = colors[1];
 					let text;
 					switch (c) {
 					case 0:
