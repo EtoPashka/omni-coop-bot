@@ -15,6 +15,6 @@ module.exports = {
 			return interaction.reply({ content: 'You don\'t have a profile!', ephemeral: true });
 		}
 		await userInfo.findOneAndDelete({ _id: interaction.user.id });
-		await interaction.reply({ content: 'Your profile was successully deleted.', ephemeral: true });
+		return interaction.reply({ content: 'Your profile was successully deleted.', ephemeral: true });
 	},
 };

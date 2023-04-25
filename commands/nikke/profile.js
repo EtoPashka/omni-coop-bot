@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder, AttachmentBuilder, EmbedBuilder, ComponentType } = require('discord.js');
 const { request } = require('undici');
 const userInfo = require('./db/database.js');
 const Canvas = require('@napi-rs/canvas');
@@ -8,16 +8,17 @@ const iHeight = 300;
 const path = require('node:path');
 const fontsPath = path.join(__dirname, 'fonts');
 Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'NotoSansHK-Bold.otf'), 'noto-sans');
+Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'NotoSansHK-Light.otf'), 'noto-sans-l');
 Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'BOMBARD_.ttf'), 'bomb');
 // resizing the text if it's too wide for the image
-const applyText = (canvas, text) => {
+const applyText = (canvas, text, size, maxWidth, family) => {
 	const context = canvas.getContext('2d');
-	let fontSize = 40;
-	context.font = '40px noto-sans';
-	while (context.measureText(text).width > 300) {
-		context.font = `${fontSize -= 1}px noto-sans`;
+	let fontSize = size;
+	context.font = `${size}px ${family}`;
+	while (context.measureText(text).width > maxWidth) {
+		context.font = `${fontSize -= 1}px ${family}`;
 	}
-	return context.font;
+	return [context.font, fontSize, context.measureText(text).width];
 };
 
 module.exports = {
@@ -72,16 +73,45 @@ module.exports = {
 		// grid (with characters) placing
 		context.lineWidth = 1;
 		GridOfSquircles(context, 180, 60, 4, 3, 60, 20, 20, charData, images, colors);
-		// member name placing
-		context.font = applyText(canvas, member.displayName);
+		// player name and id placing
+		const name = userData.name;
+		let textParams = applyText(canvas, name, 30, 200, 'noto-sans');
+		context.font = textParams[0];
+		const fontSize = textParams[1];
+		const textWidth = textParams[2];
 		context.fillStyle = '#000000';
-		context.fillText(member.displayName, 172, 42);
+		context.fillText(name, 172, 42);
 		context.fillStyle = colors[1];
-		context.fillText(member.displayName, 170, 40);
+		context.fillText(name, 170, 40);
+		context.beginPath();
+		context.moveTo(180 + textWidth, 40 - fontSize);
+		context.lineTo(180 + textWidth, 50);
+		context.closePath();
+		context.lineWidth = 2;
+		context.stroke();
+		const ID = userData.ID;
+		const stringID = `ID: ${ID}`;
+		textParams = applyText(canvas, stringID, 15, 100, 'noto-sans-l');
+		context.font = textParams[0];
+		context.fillText(stringID, 187 + textWidth, 50);
 
 		const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'profile-image.png' });
 
-		return interaction.reply({ files: [attachment] });
+		const profileEmbed = new EmbedBuilder()
+			.setTitle('Profile')
+			.setDescription(`Owner: <@${user.id}>`)
+			.setColor(colors[1])
+			.setImage('attachment://profile-image.png');
+		const showID = new ButtonBuilder()
+			.setLabel('Get player ID')
+			.setCustomId('show_id')
+			.setStyle(ButtonStyle.Secondary);
+		const row = new ActionRowBuilder().addComponents(showID);
+		const response = await interaction.reply({ embeds: [profileEmbed], files: [attachment], components: [row] });
+		const collector = response.createMessageComponentCollector({ componentType: ComponentType.Button, time: 600_000 });
+		collector.on('collect', async i => {
+			await i.reply({ content: `${ID}`, ephemeral: true });
+		});
 	},
 };
 // drawing Squircle

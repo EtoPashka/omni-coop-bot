@@ -164,7 +164,7 @@ module.exports = {
 					{ name: 'Burst', value: `Level ${burst}`, inline: true },
 					{ name: 'Number of OL gear', value: `${ol}` },
 				);
-			await interaction.reply({ embeds: [replyEmbed], ephemeral: true });
+			return interaction.reply({ embeds: [replyEmbed], ephemeral: true });
 		}
 		if (interaction.options.getSubcommand() === 'remove' || interaction.options.getSubcommand() === 'update') {
 			const nikkeName = interaction.options.getString('name');
@@ -192,7 +192,7 @@ module.exports = {
 						},
 					},
 				}, {});
-				await interaction.reply({ content: `You've successfully removed **${nikkeN}** from your profile.`, ephemeral: true });
+				return interaction.reply({ content: `You've successfully removed **${nikkeN}** from your profile.`, ephemeral: true });
 			}
 			if (interaction.options.getSubcommand() === 'update') {
 				if (!interaction.options.getInteger('s1') &&
@@ -239,7 +239,7 @@ module.exports = {
 						{ name: 'Burst', value: `Level ${burst}`, inline: true },
 						{ name: 'Number of OL gear', value: `${ol}` },
 					);
-				await interaction.reply({ embeds: [replyEmbed], ephemeral: true });
+				return interaction.reply({ embeds: [replyEmbed], ephemeral: true });
 			}
 		}
 	},

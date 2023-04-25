@@ -39,6 +39,6 @@ module.exports = {
 		}, {}))) {
 			return interaction.reply({ content: 'You don\'t have a profile!', ephemeral: true });
 		}
-		await interaction.reply({ content: `Theme **${themeName}** has been set successfully!`, ephemeral: true });
+		return interaction.reply({ content: `Theme **${themeName}** has been set successfully!`, ephemeral: true });
 	},
 };

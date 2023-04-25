@@ -138,8 +138,8 @@ module.exports = {
 				embeds: [listEmbed],
 				components: [buttonRow, menuRow],
 			});
-			const buttonCollector = response.createMessageComponentCollector({ componentType: ComponentType.Button, time: 3_600_000 });
-			const menuCollector = response.createMessageComponentCollector({ componentType: ComponentType.StringSelect, time: 3_600_000 });
+			const buttonCollector = response.createMessageComponentCollector({ componentType: ComponentType.Button, time: 300_000 });
+			const menuCollector = response.createMessageComponentCollector({ componentType: ComponentType.StringSelect, time: 300_000 });
 
 			buttonCollector.on('collect', async i => {
 				if (i.user.id !== interaction.user.id) {

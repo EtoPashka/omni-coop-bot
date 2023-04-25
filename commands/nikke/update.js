@@ -43,6 +43,6 @@ module.exports = {
 				{ name: 'In-game name', value: name, inline: true },
 				{ name: 'In-game ID', value: ID, inline: true },
 			);
-		await interaction.reply({ content: 'Your profile has been updated successfully.', embeds: [replyEmbed], ephemeral: true });
+		return interaction.reply({ content: 'Your profile has been updated successfully.', embeds: [replyEmbed], ephemeral: true });
 	},
 };
