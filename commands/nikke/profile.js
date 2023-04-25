@@ -7,15 +7,14 @@ const iWidth = 500;
 const iHeight = 300;
 const path = require('node:path');
 const fontsPath = path.join(__dirname, 'fonts');
-Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'NotoSans-Light.ttf'), 'Noto Sans');
-Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'zh-cn.ttf'), 'HYWenHei');
+Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'NotoSansHK-Light.otf'), 'noto-sans');
 // resizing the text if it's too wide for the image
 const applyText = (canvas, text) => {
 	const context = canvas.getContext('2d');
 	let fontSize = 40;
-	context.font = '40px HYWenHei';
+	context.font = '40px noto-sans';
 	while (context.measureText(text).width > 300) {
-		context.font = `${fontSize -= 1}px HYWenHei`;
+		context.font = `${fontSize -= 1}px noto-sans`;
 	}
 	return context.font;
 };
@@ -121,12 +120,12 @@ function GridOfSquircles(context, start_x, start_y, x_num, y_num, cell_size, spa
 				context.fill();
 				context.stroke();
 				context.fillStyle = '#f8ab2b';
-				context.font = '14px Noto Sans';
+				context.font = '14px noto-sans';
 				const ol = String(character.ol);
 				const olWidth = context.measureText(ol).width;
 				context.fillText(ol, x + cell_size - 5 - olWidth / 2, y + cell_size);
 				// circles for nikke skills' levels
-				context.font = '12px Noto Sans';
+				context.font = '12px noto-sans';
 				for (let c = 0; c < 3; c++) {
 					context.fillStyle = 'rgba(0, 0, 0, 1)';
 					Circle(context, x, y + 4 + c * (2 + 16), 16);
