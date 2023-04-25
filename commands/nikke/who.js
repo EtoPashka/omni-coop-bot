@@ -54,7 +54,7 @@ module.exports = {
 	},
 
 	async execute(interaction) {
-		const users = await userInfo.find({}, {}, { sort: { username: 1 } });
+		const users = await userInfo.find({}, {}, { sort: { name: 1, username: 1 } });
 		// HAS
 		if (interaction.options.getSubcommand() === 'has') {
 			const name = interaction.options.getString('name');
@@ -73,9 +73,12 @@ module.exports = {
 				mburst = interaction.options.getInteger('burst');
 				filtered = filtered.filter(u => u.characters.find(c => c.name === name).burst >= mburst);
 			}
-			if (interaction.options.getInteger('ol')) {
-				mol = interaction.options.getInteger('ol');
+			if (interaction.options.getInteger('overload')) {
+				mol = interaction.options.getInteger('overload');
 				filtered = filtered.filter(u => u.characters.find(c => c.name === name).ol >= mol);
+			}
+			if (!filtered.length) {
+				return interaction.reply({ content: `Nobody has **${name}** at least **${ms1}**/**${ms2}**/**${mburst}** with **${mol}** OL :smiling_face_with_tear:` });
 			}
 			filtered.sort(function(a, b) {
 				return b.characters.find(c => c.name === name).cv - a.characters.find(c => c.name === name).cv;
@@ -99,7 +102,7 @@ module.exports = {
 					const s2 = character.s2;
 					const burst = character.burst;
 					const ol = character.ol;
-					description += `**${i * len + j + 1}.** <@${filtered[i * len + j]._id}>: ${name} ${s1}/${s2}/${burst} with ${ol} OL\n\n`;
+					description += `**${i * len + j + 1}.** ${filtered[i * len + j].name} (<@${filtered[i * len + j]._id}>): ${name} ${s1}/${s2}/${burst} with ${ol} OL\n\n`;
 				}
 				descriptions.push(description);
 			}

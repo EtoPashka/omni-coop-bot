@@ -3,6 +3,8 @@ const { Schema, model, models } = require('mongoose');
 const userInfo = new Schema ({
 	_id: String,
 	username: String,
+	name: String,
+	ID: String,
 	theme: {
 		bg: String,
 		stroke: String,

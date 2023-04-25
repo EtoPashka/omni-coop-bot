@@ -37,8 +37,8 @@ module.exports = {
 				text: theme.text,
 			},
 		}, {}))) {
-			return interaction.reply({ content: `<@${interaction.user.id}>, you don't have a profile!`, ephemeral: true });
+			return interaction.reply({ content: 'You don\'t have a profile!', ephemeral: true });
 		}
-		await interaction.reply({ content: `<@${interaction.user.id}>, theme **${themeName}** has been set successfully!`, ephemeral: true });
+		await interaction.reply({ content: `Theme **${themeName}** has been set successfully!`, ephemeral: true });
 	},
 };

@@ -28,7 +28,6 @@ module.exports = {
 			)
 			.setImage('https://i.ibb.co/6rjxt1s/profile-guide.png');
 		await interaction.reply({
-			content: `<@${interaction.user.id}>`,
 			embeds: [helpEmbed],
 			ephemeral: true,
 		});

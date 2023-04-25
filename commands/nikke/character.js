@@ -120,6 +120,10 @@ module.exports = {
 
 	async execute(interaction) {
 		if (interaction.options.getSubcommand() === 'add') {
+			const userData = await userInfo.findOne({ _id: interaction.user.id });
+			if (!userData) {
+				return interaction.reply({ content: 'You don\'t have a profile! Create one via `create profile` command.', ephemeral: true });
+			}
 			const nikkeName = interaction.options.getString('name');
 			const nikkeN = nikkeNames.find(n => n.toLowerCase() === nikkeName.toLowerCase());
 			if (!nikkeN) {
@@ -130,12 +134,7 @@ module.exports = {
 			const burst = interaction.options.getInteger('burst');
 			const ol = interaction.options.getInteger('overload');
 			const cv = s1 + s2 + burst + ol * 3;
-			const userData = await userInfo.findOne({ _id: interaction.user.id });
-			let char = [];
-			// if profile exists, get data from it
-			if (userData) {
-				char = userData.characters.map(c => c.name);
-			}
+			const char = userData.characters.map(c => c.name);
 			if (char.find(n => n === nikkeN)) {
 				return interaction.reply({ content: `You've already added **${nikkeN}** to your profile!`, ephemeral: true });
 			}
@@ -155,9 +154,7 @@ module.exports = {
 						$sort: { cv: -1, name: 1 },
 					},
 				},
-			}, {
-				upsert: true,
-			});
+			}, {});
 			// building an embed with added nikke info to reply to user
 			const replyEmbed = new EmbedBuilder()
 				.setDescription(`**${nikkeN}** has been successfully added!`)
@@ -167,7 +164,7 @@ module.exports = {
 					{ name: 'Burst', value: `Level ${burst}`, inline: true },
 					{ name: 'Number of OL gear', value: `${ol}` },
 				);
-			await interaction.reply({ content: `<@${interaction.user.id}>!`, embeds: [replyEmbed], ephemeral: true });
+			await interaction.reply({ embeds: [replyEmbed], ephemeral: true });
 		}
 		if (interaction.options.getSubcommand() === 'remove' || interaction.options.getSubcommand() === 'update') {
 			const nikkeName = interaction.options.getString('name');
@@ -188,7 +185,6 @@ module.exports = {
 				await userInfo.findOneAndUpdate({
 					_id: interaction.user.id,
 				}, {
-					_id: interaction.user.id,
 					username: interaction.user.tag,
 					$pull:{
 						characters: {
@@ -196,9 +192,15 @@ module.exports = {
 						},
 					},
 				}, {});
-				await interaction.reply({ content: `<@${interaction.user.id}>! You've successfully removed **${nikkeN}** from your profile.`, ephemeral: true });
+				await interaction.reply({ content: `You've successfully removed **${nikkeN}** from your profile.`, ephemeral: true });
 			}
 			if (interaction.options.getSubcommand() === 'update') {
+				if (!interaction.options.getInteger('s1') &&
+					!interaction.options.getInteger('s2') &&
+					!interaction.options.getInteger('burst') &&
+					!interaction.options.getInteger('overload')) {
+					return interaction.reply({ content: 'You have to enter at least 1 parameter that you want to update.', ephemeral: true });
+				}
 				// getting current values from user data in database and setting them if nothing is entered to the corresponding fields
 				const data = (await userInfo.findOne({ _id: interaction.user.id }).distinct('characters')).find(c => c.name === nikkeN);
 				const s1 = interaction.options.getInteger('s1') ?? data.s1;
@@ -210,7 +212,6 @@ module.exports = {
 				await userInfo.findOneAndUpdate({
 					_id: interaction.user.id,
 				}, {
-					_id: interaction.user.id,
 					username: interaction.user.tag,
 					$pull:{
 						characters: {
@@ -238,7 +239,7 @@ module.exports = {
 						{ name: 'Burst', value: `Level ${burst}`, inline: true },
 						{ name: 'Number of OL gear', value: `${ol}` },
 					);
-				await interaction.reply({ content: `<@${interaction.user.id}>!`, embeds: [replyEmbed], ephemeral: true });
+				await interaction.reply({ embeds: [replyEmbed], ephemeral: true });
 			}
 		}
 	},

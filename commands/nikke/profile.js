@@ -1,7 +1,5 @@
 const { SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
 const { request } = require('undici');
-const { themes } = require('./themes.json');
-const defaultTheme = 'Guillotine (Purple)';
 const userInfo = require('./db/database.js');
 const Canvas = require('@napi-rs/canvas');
 // the res of the profile image
@@ -33,22 +31,17 @@ module.exports = {
 		const userData = await userInfo.findOne({ _id: user.id });
 		// if no user found in database => no profile
 		if (!userData) {
-			return interaction.reply({ content: `<@${user.id}> doesn't have a profile!`, ephemeral: true });
+			if (user.id === interaction.user.id) {
+				return interaction.reply({ content: 'You don\'t have a profile!', ephemeral: true });
+			}
+			else {
+				return interaction.reply({ content: `<@${user.id}> doesn't have a profile!`, ephemeral: true });
+			}
 		}
 		const member = interaction.guild.members.cache.find(u => u.id === user.id);
 		// getting style info
-		// const colors = ['#d3790e', '#f8ab2b'];
-		let bg;
-		let colors = [];
-		if (userData.theme.bg && userData.theme.stroke && userData.theme.text) {
-			colors = [userData.theme.stroke, userData.theme.text];
-			bg = userData.theme.bg;
-		}
-		else {
-			const theme = themes.find(t => t.name === defaultTheme);
-			colors = [theme.stroke, theme.text];
-			bg = theme.bg;
-		}
+		const colors = [userData.theme.stroke, userData.theme.text];
+		const bg = userData.theme.bg;
 		const charData = userData.characters;
 		const canvas = Canvas.createCanvas(iWidth, iHeight);
 		const context = canvas.getContext('2d');
