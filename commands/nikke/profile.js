@@ -1,4 +1,4 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder, AttachmentBuilder, EmbedBuilder, ComponentType } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder, AttachmentBuilder, EmbedBuilder } = require('discord.js');
 const { request } = require('undici');
 const userInfo = require('./db/database.js');
 const Canvas = require('@napi-rs/canvas');
@@ -104,14 +104,11 @@ module.exports = {
 			.setImage('attachment://profile-image.png');
 		const showID = new ButtonBuilder()
 			.setLabel('Get player ID')
-			.setCustomId('show_id')
+			.setCustomId(`idB${ID}`)
 			.setStyle(ButtonStyle.Secondary);
 		const row = new ActionRowBuilder().addComponents(showID);
-		const response = await interaction.reply({ embeds: [profileEmbed], files: [attachment], components: [row] });
-		const collector = response.createMessageComponentCollector({ componentType: ComponentType.Button, time: 600_000 });
-		collector.on('collect', async i => {
-			await i.reply({ content: `${ID}`, ephemeral: true });
-		});
+		// the get id button handled in getid.js
+		return interaction.reply({ embeds: [profileEmbed], files: [attachment], components: [row] });
 	},
 };
 // drawing Squircle
