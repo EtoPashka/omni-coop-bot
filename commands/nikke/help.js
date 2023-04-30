@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
 const bot_creator_id = '224490278478675968';
 
 module.exports = {
@@ -34,8 +34,14 @@ module.exports = {
 			)
 			.setImage('https://i.ibb.co/Kx9wvn9/profile-guide.png')
 			.setFooter({ text: `Created by ${member.user.tag}`, iconURL: member.user.displayAvatarURL() });
+		const supButton = new ButtonBuilder()
+			.setCustomId('help-kofi')
+			.setEmoji('1102315230094163968')
+			.setStyle(ButtonStyle.Secondary);
+		const row = new ActionRowBuilder().addComponents(supButton);
 		return interaction.reply({
 			embeds: [helpEmbed],
+			components: [row],
 			ephemeral: true,
 		});
 	},
