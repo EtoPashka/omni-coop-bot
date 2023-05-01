@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
 const bot_creator_id = '224490278478675968';
+const coopChannel = '<#1042837815752396811>';
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -9,7 +10,7 @@ module.exports = {
 		const member = interaction.guild.members.cache.find(m => m.id === bot_creator_id);
 		const helpEmbed = new EmbedBuilder()
 			.setTitle('Bot information')
-			.setDescription('This bot is created to help Omni members find companions for ranked Co-Op runs in Nikke. It can store information about players\' Nikkes (up to 12 Nikkes per user).\n Please, add __ONLY__ characters that are most important for the current Co-Op battle.\n You can check out the list of all commands below.\n')
+			.setDescription(`**NOTE**: use commands in ${coopChannel}!\n\nThis bot is created to help Omni members find companions for ranked Co-Op runs in Nikke. It can store information about players' Nikkes (up to 12 Nikkes per user).\n Please, add __ONLY__ characters that are most important for the current Co-Op battle.\n You can check out the list of all coop-related commands below.\n`)
 			.addFields(
 				{ name: '/create profile', value:
 				'Creates your profile and adds it to bot\'s database. You have to provide your in-game name and player ID.\n' },
