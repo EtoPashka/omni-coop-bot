@@ -7,8 +7,8 @@ const iWidth = 500;
 const iHeight = 300;
 const path = require('node:path');
 const fontsPath = path.join(__dirname, 'fonts');
-Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'NotoSansHK-Bold.otf'), 'noto-sans');
-Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'NotoSansHK-Light.otf'), 'noto-sans-l');
+Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'NotoSansSC-Bold.otf'), 'noto-sans');
+Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'NotoSansSC-Light.otf'), 'noto-sans-l');
 Canvas.GlobalFonts.registerFromPath(path.join(fontsPath, 'BOMBARD_.ttf'), 'bomb');
 // resizing the text if it's too wide for the image
 const applyText = (canvas, text, size, maxWidth, family) => {

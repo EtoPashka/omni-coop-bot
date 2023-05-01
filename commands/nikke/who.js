@@ -57,7 +57,10 @@ module.exports = {
 		const users = await userInfo.find({}, {}, { sort: { name: 1, username: 1 } });
 		// HAS
 		if (interaction.options.getSubcommand() === 'has') {
-			const name = interaction.options.getString('name');
+			const name = nikkeNames.find(n => n.toLowerCase() === interaction.options.getString('name').toLowerCase());
+			if (!name) {
+				return interaction.reply({ content: `There is no Nikke named **${interaction.options.getString('name')}**!`, ephemeral: true });
+			}
 			let filtered = users.filter(u => u.characters.find(c => c.name === name));
 			// min values
 			let ms1 = 1, ms2 = 1, mburst = 1, mol = 0;

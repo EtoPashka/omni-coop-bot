@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const userInfo = require('./db/database.js');
+const num_alph = '0123456789';
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -31,6 +32,11 @@ module.exports = {
 		}
 		const name = interaction.options.getString('name') ?? userData.name;
 		const ID = interaction.options.getString('id') ?? userData.ID;
+		for (let i = 0; i < 8; i++) {
+			if (!num_alph.includes(ID[i])) {
+				return interaction.reply({ content: 'The ID should be 8-digit numeric code.', ephemeral: true });
+			}
+		}
 		await userInfo.findOneAndUpdate({
 			_id: interaction.user.id,
 		}, {
