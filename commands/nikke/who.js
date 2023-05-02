@@ -61,6 +61,7 @@ module.exports = {
 			if (!name) {
 				return interaction.reply({ content: `There is no Nikke named **${interaction.options.getString('name')}**!`, ephemeral: true });
 			}
+			await interaction.deferReply();
 			let filtered = users.filter(u => u.characters.find(c => c.name === name));
 			// min values
 			let ms1 = 1, ms2 = 1, mburst = 1, mol = 0;
@@ -137,7 +138,7 @@ module.exports = {
 				.setDescription(descriptions[current - 1])
 				.setFooter({ text: `Page ${current}/${options.length}` });
 
-			const response = await interaction.reply({
+			const response = await interaction.editReply({
 				embeds: [listEmbed],
 				components: [buttonRow, menuRow],
 			});
@@ -146,7 +147,7 @@ module.exports = {
 
 			buttonCollector.on('collect', async i => {
 				if (i.user.id !== interaction.user.id) {
-					return;
+					return i.reply({ content: 'You can\'t interact with it, because you are not the one who used the command!', ephemeral: true });
 				}
 				const buttonId = i.customId;
 				switch (buttonId) {
@@ -167,7 +168,7 @@ module.exports = {
 			});
 			menuCollector.on('collect', async i => {
 				if (i.user.id !== interaction.user.id) {
-					return;
+					return i.reply({ content: 'You can\'t interact with it, because you are not the one who used the command!', ephemeral: true });
 				}
 				const value = i.values[0];
 				current = Number(value);

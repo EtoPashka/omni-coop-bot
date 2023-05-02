@@ -39,6 +39,8 @@ module.exports = {
 				return interaction.reply({ content: `<@${user.id}> doesn't have a profile!`, ephemeral: true });
 			}
 		}
+
+		await interaction.deferReply();
 		const member = interaction.guild.members.cache.find(u => u.id === user.id);
 		// getting style info
 		const colors = [userData.theme.stroke, userData.theme.text];
@@ -108,7 +110,7 @@ module.exports = {
 			.setStyle(ButtonStyle.Secondary);
 		const row = new ActionRowBuilder().addComponents(showID);
 		// the get id button handled in getid.js
-		return interaction.reply({ embeds: [profileEmbed], files: [attachment], components: [row] });
+		return interaction.editReply({ embeds: [profileEmbed], files: [attachment], components: [row] });
 	},
 };
 // drawing Squircle
