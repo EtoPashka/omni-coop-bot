@@ -82,7 +82,7 @@ module.exports = {
 				filtered = filtered.filter(u => u.characters.find(c => c.name === name).ol >= mol);
 			}
 			if (!filtered.length) {
-				return interaction.reply({ content: `Nobody has **${name}** at least **${ms1}**/**${ms2}**/**${mburst}** with **${mol}** OL :smiling_face_with_tear:` });
+				return interaction.editReply({ content: `Nobody has **${name}** at least **${ms1}**/**${ms2}**/**${mburst}** with **${mol}** OL :smiling_face_with_tear:` });
 			}
 			filtered.sort(function(a, b) {
 				return b.characters.find(c => c.name === name).cv - a.characters.find(c => c.name === name).cv;
