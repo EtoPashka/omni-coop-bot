@@ -31,6 +31,18 @@ module.exports = {
 			return interaction.reply({ content: 'You already have a profile!', ephemeral: true });
 		}
 		const name = interaction.options.getString('name');
+		let bad = false;
+		let str = 'You can\'t use';
+		for (let i = 0; i < name.length; i++) {
+			if (!RegExp(/^\p{L}/, 'u').test(name[i]) && !num_alph.includes(name[i])) {
+				str += ` \`${name[i]}\`,`;
+				bad = true;
+			}
+		}
+		if (bad) {
+			str = str.slice(0, -1) + '.';
+			return interaction.reply({ content: str, ephemeral: true });
+		}
 		const ID = interaction.options.getString('id');
 		for (let i = 0; i < 8; i++) {
 			if (!num_alph.includes(ID[i])) {
