@@ -96,13 +96,12 @@ function APBM(selectedNikke, s1, s2, burst, lb, core, bond, gear, cube, rr_manul
 			else if (stat.attribute === 'Max Ammunition Capacity') {
 				const statValue = selectedNikke.statMultipliers.find(s => s.attribute === stat.attribute).value;
 				nikkeStats += statValue * stat.value * ammoMultiplier / gearSubs.find(s => s.attribute === stat.attribute).values.at(6);
-				if (ammoVal.find(e => e.value === stat.value)) {
-					ammoVal.find(e => e.value === stat.value).count += 1;
+				if (ammoVal.find(e => e.val === stat.value)) {
+					ammoVal.find(e => e.val === stat.value).count += 1;
 				}
 				else {
-					ammoVal.push({ value: stat.value, count: 1 });
+					ammoVal.push({ val: stat.value, count: 1 });
 				}
-				ammo += Math.round(stat.value * selectedNikke.ammo / 100);
 			}
 			else {
 				const statValue = selectedNikke.statMultipliers.find(s => s.attribute === stat.attribute).value;
@@ -110,8 +109,8 @@ function APBM(selectedNikke, s1, s2, burst, lb, core, bond, gear, cube, rr_manul
 			}
 		}
 	}
-	for (const val in ammoVal) {
-		ammo += Math.round(selectedNikke.ammo * val.count * val.value / 100);
+	for (const val of ammoVal) {
+		ammo += Math.round(selectedNikke.ammo * val.count * val.val / 100);
 	}
 	const gearElemMultiplier = (1 - gearSV - gearX) * gearQuality * (elemValue / 100);
 	const statQuality = nikkeStats / refStats;
