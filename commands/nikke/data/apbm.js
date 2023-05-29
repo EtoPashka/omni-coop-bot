@@ -64,6 +64,7 @@ function APBM(selectedNikke, s1, s2, burst, lb, core, bond, gear, cube, rr_manul
 	let nikkeStats = 0;
 	let elemValue = 10;
 	let ammo = selectedNikke.ammo;
+	const ammoVal = [];
 	for (const cub of cube) {
 		const selectedCube = cubeData.cubes.find(c => c.ctype === cub.ctype);
 		const cubeAtt = selectedCube.attribute;
@@ -77,7 +78,9 @@ function APBM(selectedNikke, s1, s2, burst, lb, core, bond, gear, cube, rr_manul
 			const gearAtt = gearSubs.find(s => s.attribute === cubeAtt);
 			if (gearAtt) {
 				nikkeStats += statValue * selectedCube.values.at(cub.lvl - 1) / gearSubs.find(s => s.attribute === cubeAtt).values.at(6);
-				if (cubeAtt === 'Max Ammunition Capacity') { ammo += Math.round(selectedCube.values.at(cub.lvl - 1) * selectedNikke.ammo / 100); }
+				if (cubeAtt === 'Max Ammunition Capacity') {
+					ammo += Math.round(selectedCube.values.at(cub.lvl - 1) * selectedNikke.ammo / 100);
+				}
 			}
 			else {
 				nikkeStats += statValue * selectedCube.values.at(cub.lvl - 1) / selectedCube.values.at(6);
@@ -93,6 +96,12 @@ function APBM(selectedNikke, s1, s2, burst, lb, core, bond, gear, cube, rr_manul
 			else if (stat.attribute === 'Max Ammunition Capacity') {
 				const statValue = selectedNikke.statMultipliers.find(s => s.attribute === stat.attribute).value;
 				nikkeStats += statValue * stat.value * ammoMultiplier / gearSubs.find(s => s.attribute === stat.attribute).values.at(6);
+				if (ammoVal.find(e => e.value === stat.value)) {
+					ammoVal.find(e => e.value === stat.value).count += 1;
+				}
+				else {
+					ammoVal.push({ value: stat.value, count: 1 });
+				}
 				ammo += Math.round(stat.value * selectedNikke.ammo / 100);
 			}
 			else {
@@ -100,6 +109,9 @@ function APBM(selectedNikke, s1, s2, burst, lb, core, bond, gear, cube, rr_manul
 				nikkeStats += statValue * stat.value / gearSubs.find(s => s.attribute === stat.attribute).values.at(6);
 			}
 		}
+	}
+	for (const val in ammoVal) {
+		ammo += Math.round(selectedNikke.ammo * val.count * val.value / 100);
 	}
 	const gearElemMultiplier = (1 - gearSV - gearX) * gearQuality * (elemValue / 100);
 	const statQuality = nikkeStats / refStats;
