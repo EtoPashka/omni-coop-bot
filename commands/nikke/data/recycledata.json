@@ -1,0 +1,7 @@
+{
+    "recycleValuePerLvl": {
+        "general": { "hp": 450 },
+        "class": { "hp": 750, "def": 5 },
+        "manufacturer": { "atk": 25, "def": 5 }
+    }
+}

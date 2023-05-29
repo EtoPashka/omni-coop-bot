@@ -1,0 +1,46 @@
+{
+    "cubeData": {
+        "basicValues": {
+            "atk": [390, 450, 520, 600, 690, 790, 910, 1050, 1200, 1380],
+            "elem": [0.00, 0.00, 0.00, 0.00, 8.48, 8.48, 8.48, 8.48, 10.6, 12.72]
+        },
+        "cubes": [
+            {
+                "ctype": "Assault",
+                "attribute": "Hit Rate",
+                "values": [2.54, 2.54, 3.81, 3.81, 3.81, 3.81, 5.09, 5.09, 5.09, 5.09]
+            },
+            {
+                "ctype": "Onslaught",
+                "attribute": "Charge Damage",
+                "values": [2.54, 2.54, 3.81, 3.81, 3.81, 3.81, 5.09, 5.09, 5.09, 5.09]
+            },
+            {
+                "ctype": "Resilience",
+                "attribute": "Reload Speed",
+                "values": [14.84, 14.84, 22.27, 22.27, 22.27, 22.27, 29.69, 29.69, 29.69, 29.69]
+            },
+            {
+                "ctype": "Wingman",
+                "attribute": "Max Ammunition Capacity",
+                "values": [14.84, 14.84, 22.27, 22.27, 22.27, 22.27, 29.69, 29.69, 29.69, 29.69]
+            },
+            {
+                "ctype": "Bastion",
+                "attribute": "Ammo Multiplier",
+                "values": [1.111, 1.111, 1.250, 1.250, 1.250, 1.250, 1.429, 1.429, 1.429, 1.429]
+            },
+            {
+                "ctype": "Adjutant",
+                "attribute": "Charge Speed",
+                "values": [1.06, 1.06, 1.59, 1.59, 1.59, 1.59, 2.12, 2.12, 2.12, 2.12]
+            },
+            {
+                "ctype": "Quantum",
+                "attribute": "Energy Gauge",
+                "values": [2.33, 2.33, 3.50, 3.50, 3.50, 3.50, 4.66, 4.66, 4.66, 4.66]
+            }
+            
+        ]
+    }
+}
