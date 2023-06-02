@@ -67,6 +67,7 @@ function APBM(selectedNikke, s1, s2, burst, lb, core, bond, gear, cube, rr_manul
 	const ammoVal = [];
 	for (const cub of cube) {
 		const selectedCube = cubeData.cubes.find(c => c.ctype === cub.ctype);
+		if (!selectedCube) { break; }
 		const cubeAtt = selectedCube.attribute;
 		if (cubeAtt === 'Ammo Multiplier') {
 			ammoMultiplier = selectedCube.values.at(cub.lvl - 1);

@@ -195,7 +195,7 @@
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 6 },
 				{ "attribute": "Hit Rate", "value": 0 },
-				{ "attribute": "Max Ammunition Capacity", "value": 10 },
+				{ "attribute": "Max Ammunition Capacity", "value": -2 },
 				{ "attribute": "Critical Damage", "value": 2 },
 				{ "attribute": "Critical Rate", "value": 2 },
 				{ "attribute": "Charge Damage", "value": 0 },

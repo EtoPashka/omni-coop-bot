@@ -50,7 +50,7 @@ module.exports = {
 			server: server,
 		}, {}, { sort: { name: 1 } });
 		if (!users.length) {
-			return interaction.editReply({ content: `Nobody has **${name}** in their account :smiling_face_with_tear:` }).catch((err) => console.log('ERROR IN TOP JS', err));
+			return interaction.editReply({ content: `Nobody has **${name}** in their account in ${server} :smiling_face_with_tear:` }).catch((err) => console.log('ERROR IN TOP JS', err));
 		}
 		const weakness = nikkeList.find(n => n.name === name).code === bossWeakness;
 		const data = users.map(u => {
