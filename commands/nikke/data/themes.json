@@ -1,0 +1,34 @@
+{
+    "themes":[
+        {
+            "name": "Anis (Orange)",
+            "bg": "bgAnis.png",
+            "stroke": "#d3790e",
+            "text": "#f8ab2b"
+        },
+        {
+            "name": "Guillotine (Purple)",
+            "bg": "bgGuillotine.png",
+            "stroke": "#6a0088",
+            "text": "#ce43f6"
+        },
+        {
+            "name": "Epinel (Cyan)",
+            "bg": "bgEpinel.png",
+            "stroke": "#39a28d",
+            "text": "#2ee8c3"
+        },
+        {
+            "name": "Rapi (Red)",
+            "bg": "bgRapi.png",
+            "stroke": "#9f3434",
+            "text": "#f24141"
+        },
+        {
+            "name": "Helm (Blue)",
+            "bg": "bgHelm.png",
+            "stroke": "#285595",
+            "text": "#3c8bf9"
+        }
+    ]
+}
