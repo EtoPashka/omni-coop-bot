@@ -1,6 +1,6 @@
 {
 	"lbAttack": 19.8,
-	"bossWeakness": "Fire",
+	"bossWeakness": "Iron",
 	"baseAttack": [
 		{
 			"class": "Attacker",
