@@ -337,7 +337,7 @@ module.exports = {
 					.setDescription(`Limit Break: **${lb}**${core ? (' +**' + String(core) + '**') : ''}` +
                     `\nBond: Lv. **${bond}**` + `\nSkills: **${s1}**/**${s2}**/**${burst}**`)
 					.setThumbnail(`attachment://${nikkeN.replace(':', '').replace(' ', '_')}.png`);
-				return interaction.editReply({ content: 'Your Nikke has been updaed successfully!', embeds: [replyEmbed], files: [file] }).catch((err) => console.log('ERROR IN CHARACTER JS', err));
+				return interaction.editReply({ content: 'Your Nikke has been updated successfully!', embeds: [replyEmbed], files: [file] }).catch((err) => console.log('ERROR IN CHARACTER JS', err));
 			}
 		}
 	},

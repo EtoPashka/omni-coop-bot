@@ -1,6 +1,6 @@
 {
 	"lbAttack": 19.8,
-	"bossWeakness": "Water",
+	"bossWeakness": "Wind",
 	"baseAttack": [
 		{
 			"class": "Attacker",
