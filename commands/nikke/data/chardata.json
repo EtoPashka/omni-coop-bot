@@ -1,6 +1,6 @@
 {
 	"lbAttack": 19.8,
-	"bossWeakness": "Wind",
+	"bossWeakness": "Iron",
 	"baseAttack": [
 		{
 			"class": "Attacker",
@@ -412,6 +412,27 @@
 				{ "attribute": "Charge Speed", "value": 0 },
 				{ "attribute": "Energy Gauge", "value": 1 },
 				{ "attribute": "Reload Speed", "value": 10 }
+			],
+			"elemMultiplier": 1
+		},
+		{
+			"name": "Helm: Aquamarine",
+			"class": "Attacker",
+			"code": "Iron",
+			"manufacturer": "Elysion",
+			"ammo": 60,
+			"powerMultipliers": { "skills": 10, "equip": 5, "stats": 5 },
+			"skillMultipliers": { "s1": 2, "s2": 10, "burst": 2 },
+			"statMultipliers": [
+				{ "attribute": "ATK", "value": 10 },
+				{ "attribute": "Hit Rate", "value": 7 },
+				{ "attribute": "Max Ammunition Capacity", "value": 10 },
+				{ "attribute": "Critical Damage", "value": 4 },
+				{ "attribute": "Critical Rate", "value": 4 },
+				{ "attribute": "Charge Damage", "value": 0 },
+				{ "attribute": "Charge Speed", "value": 0 },
+				{ "attribute": "Energy Gauge", "value": 1 },
+				{ "attribute": "Reload Speed", "value": 4 }
 			],
 			"elemMultiplier": 1
 		}
