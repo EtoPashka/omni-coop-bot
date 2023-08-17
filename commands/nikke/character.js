@@ -225,12 +225,12 @@ module.exports = {
 				},
 			}, {});
 			// building an embed with added nikke info to reply to user
-			const file = new AttachmentBuilder(`${__dirname}/images/characters/${nikkeN.replace(':', '').replace(' ', '_')}.png`);
+			const file = new AttachmentBuilder(`${__dirname}/images/characters/${nikkeN.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 			const replyEmbed = new EmbedBuilder()
 				.setTitle(`${nikkeN}`)
 				.setDescription(`Limit Break: **${lb}**${core ? (' +**' + String(core) + '**') : ''}` +
                     `\nBond: Lv. **${bond}**` + `\nSkills: **${s1}**/**${s2}**/**${burst}**`)
-				.setThumbnail(`attachment://${nikkeN.replace(':', '').replace(' ', '_')}.png`);
+				.setThumbnail(`attachment://${nikkeN.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 			return interaction.editReply({ content: 'Your Nikke has been added successfully!', embeds: [replyEmbed], files: [file] }).catch((err) => console.log('ERROR IN CHARACTER JS', err));
 		}
 		if (interaction.options.getSubcommand() === 'remove' || interaction.options.getSubcommand() === 'update') {
@@ -331,12 +331,12 @@ module.exports = {
 					},
 				}, {});
 				// building an embed with added nikke info to reply to user
-				const file = new AttachmentBuilder(`${__dirname}/images/characters/${nikkeN.replace(':', '').replace(' ', '_')}.png`);
+				const file = new AttachmentBuilder(`${__dirname}/images/characters/${nikkeN.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 				const replyEmbed = new EmbedBuilder()
 					.setTitle(`${nikkeN}`)
 					.setDescription(`Limit Break: **${lb}**${core ? (' +**' + String(core) + '**') : ''}` +
                     `\nBond: Lv. **${bond}**` + `\nSkills: **${s1}**/**${s2}**/**${burst}**`)
-					.setThumbnail(`attachment://${nikkeN.replace(':', '').replace(' ', '_')}.png`);
+					.setThumbnail(`attachment://${nikkeN.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 				return interaction.editReply({ content: 'Your Nikke has been updated successfully!', embeds: [replyEmbed], files: [file] }).catch((err) => console.log('ERROR IN CHARACTER JS', err));
 			}
 		}

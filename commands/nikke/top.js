@@ -173,7 +173,7 @@ async function characterPage(interaction, name, closeButton, userData) {
 	const exitRow = new ActionRowBuilder().addComponents(closeButton);
 	const nikke = userData.characters.find(c => c.name === name);
 	// loading character image
-	const image = new AttachmentBuilder(`${__dirname}/images/characters/${name.replace(':', '').replace(' ', '_')}.png`);
+	const image = new AttachmentBuilder(`${__dirname}/images/characters/${name.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 	let description = '';
 	if (nikkeList.find(c => c.name === name).code === bossWeakness) {
 		description += `PP: ${nikke.pp} [+${nikke.pp_elem}] (**${nikke.pp + nikke.pp_elem}**)\n`;
@@ -224,7 +224,7 @@ async function characterPage(interaction, name, closeButton, userData) {
 			{ name: 'Gear', value: gearDesc },
 			{ name: 'Cube', value: cubeDesc },
 		)
-		.setThumbnail(`attachment://${name.replace(':', '').replace(' ', '_')}.png`)
+		.setThumbnail(`attachment://${name.replaceAll(':', '').replaceAll(' ', '_')}.png`)
 		.setFooter({ text: `Owner: ${userData.name}` });
 	if (statField) { embed.addFields({ name: 'Additional Stats', value: statField }); }
 	return interaction.reply({

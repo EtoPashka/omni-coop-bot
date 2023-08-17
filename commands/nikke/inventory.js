@@ -391,9 +391,9 @@ async function selectTier(interaction, settings) {
 	const T9MButton = new ButtonBuilder().setCustomId('gear-tierT9M').setLabel('T9M').setStyle(ButtonStyle.Primary);
 	const T10Button = new ButtonBuilder().setCustomId('gear-tierT10').setLabel('T10').setStyle(ButtonStyle.Primary);
 	const cancelButton = new ButtonBuilder().setCustomId('gear-cancel').setLabel('Cancel').setStyle(ButtonStyle.Secondary);
-	const image = new AttachmentBuilder(`${__dirname}/images/characters/${settings.nikke.replace(':', '').replace(' ', '_')}.png`);
+	const image = new AttachmentBuilder(`${__dirname}/images/characters/${settings.nikke.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 	const equipEmbed = new EmbedBuilder()
-		.setAuthor({ name: settings.nikke, iconURL: `attachment://${settings.nikke.replace(':', '').replace(' ', '_')}.png` })
+		.setAuthor({ name: settings.nikke, iconURL: `attachment://${settings.nikke.replaceAll(':', '').replaceAll(' ', '_')}.png` })
 		.setDescription('**Select tier**')
 		.setFooter({ text: settings.gear.gtype });
 	const cancelRow = new ActionRowBuilder().addComponents(cancelButton);
@@ -419,9 +419,9 @@ async function equipPage(interaction, name, homeButton, gear) {
 		if (!gear.find(g => g.gtype === 'Arm')) { armButton.setDisabled(true).setStyle(ButtonStyle.Secondary); }
 		if (!gear.find(g => g.gtype === 'Leg')) { legButton.setDisabled(true).setStyle(ButtonStyle.Secondary); }
 	}
-	const image = new AttachmentBuilder(`${__dirname}/images/characters/${name.replace(':', '').replace(' ', '_')}.png`);
+	const image = new AttachmentBuilder(`${__dirname}/images/characters/${name.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 	const equipEmbed = new EmbedBuilder()
-		.setAuthor({ name: name, iconURL: `attachment://${name.replace(':', '').replace(' ', '_')}.png` })
+		.setAuthor({ name: name, iconURL: `attachment://${name.replaceAll(':', '').replaceAll(' ', '_')}.png` })
 		.setDescription(`**Select gear to ${action}**`);
 	const backButton = new ButtonBuilder().setCustomId('equip-back').setLabel('Back').setStyle(ButtonStyle.Secondary);
 	const menuButtons = new ActionRowBuilder().addComponents(homeButton, backButton);
@@ -442,9 +442,9 @@ async function equipCubePage(interaction, settings) {
 
 	const buttonRow = new ActionRowBuilder().addComponents(cancelButton);
 	const menuRow = new ActionRowBuilder();
-	const image = new AttachmentBuilder(`${__dirname}/images/characters/${settings.nikke.replace(':', '').replace(' ', '_')}.png`);
+	const image = new AttachmentBuilder(`${__dirname}/images/characters/${settings.nikke.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 	const embed = new EmbedBuilder()
-		.setAuthor({ name: settings.nikke, iconURL: `attachment://${settings.nikke.replace(':', '').replace(' ', '_')}.png` });
+		.setAuthor({ name: settings.nikke, iconURL: `attachment://${settings.nikke.replaceAll(':', '').replaceAll(' ', '_')}.png` });
 
 	if (interaction.customId === 'cube-equip') {
 		const optionsArray = cubeData.cubes.map(c => c.ctype);
@@ -482,12 +482,12 @@ async function cubePage(interaction, userData, name, homeButton) {
 	const unequipButon = new ButtonBuilder().setCustomId('cube-unequip').setLabel('Unequip').setStyle(ButtonStyle.Danger);
 	const cube = await userData.characters.find(c => c.name === name).cube;
 	if (!cube.length) { unequipButon.setDisabled(true).setStyle(ButtonStyle.Secondary); }
-	const image = new AttachmentBuilder(`${__dirname}/images/characters/${name.replace(':', '').replace(' ', '_')}.png`);
+	const image = new AttachmentBuilder(`${__dirname}/images/characters/${name.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 	let cubeDesc = '';
 	let cubeStats = '';
 	const embed = new EmbedBuilder()
 		.setTitle(name)
-		.setThumbnail(`attachment://${name.replace(':', '').replace(' ', '_')}.png`);
+		.setThumbnail(`attachment://${name.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 	if (cube.length) {
 		cubeDesc = `**${cube.at(0).ctype}\n** Cube Lv. **${cube.at(0).lvl}**`;
 		const selectedCube = cubeData.cubes.find(c => c.ctype === cube.at(0).ctype);
@@ -527,7 +527,7 @@ async function gearPage(interaction, userData, name, homeButton) {
 		unequipButton.setDisabled(true).setStyle(ButtonStyle.Secondary);
 		changeButton.setDisabled(true).setStyle(ButtonStyle.Secondary);
 	}
-	const image = new AttachmentBuilder(`${__dirname}/images/characters/${name.replace(':', '').replace(' ', '_')}.png`);
+	const image = new AttachmentBuilder(`${__dirname}/images/characters/${name.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 	const gearFields = [];
 	const gearTypes = ['Head', 'Torso', 'Arm', 'Leg'];
 	for (const gearType of gearTypes) {
@@ -543,7 +543,7 @@ async function gearPage(interaction, userData, name, homeButton) {
 	}
 	const gearEmbed = new EmbedBuilder()
 		.setTitle(name)
-		.setThumbnail(`attachment://${name.replace(':', '').replace(' ', '_')}.png`)
+		.setThumbnail(`attachment://${name.replaceAll(':', '').replaceAll(' ', '_')}.png`)
 		.addFields(
 			{ name: gearTypes.at(0), value: gearFields.at(0) },
 			{ name: gearTypes.at(1), value: gearFields.at(1) },
@@ -574,7 +574,7 @@ async function characterPage(interaction, userData, name, profile, rows) {
 		profile.setLabel('Add to profile').setStyle(ButtonStyle.Secondary).setCustomId('char-profile-add').setDisabled(true);
 	}
 	// loading character image
-	const image = new AttachmentBuilder(`${__dirname}/images/characters/${name.replace(':', '').replace(' ', '_')}.png`);
+	const image = new AttachmentBuilder(`${__dirname}/images/characters/${name.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 	let description = '';
 	if (nikkeList.find(c => c.name === name).code === bossWeakness) {
 		description += `PP: ${nikke.pp} [+${nikke.pp_elem}] (**${nikke.pp + nikke.pp_elem}**)\n`;
@@ -625,7 +625,7 @@ async function characterPage(interaction, userData, name, profile, rows) {
 			{ name: 'Gear', value: gearDesc },
 			{ name: 'Cube', value: cubeDesc },
 		)
-		.setThumbnail(`attachment://${name.replace(':', '').replace(' ', '_')}.png`);
+		.setThumbnail(`attachment://${name.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 	if (statField) { embed.addFields({ name: 'Additional Stats', value: statField }); }
 	const rerows = rows;
 	rerows.push(exitRow);
@@ -666,9 +666,9 @@ async function selectGearStats(interaction, settings) {
 	const cancelButton = new ButtonBuilder().setCustomId('gear-cancel').setLabel('Cancel').setStyle(ButtonStyle.Secondary);
 	const confirmButton = new ButtonBuilder().setCustomId('gear-confirm').setLabel('Confirm selections').setStyle(ButtonStyle.Success);
 	// embed
-	const image = new AttachmentBuilder(`${__dirname}/images/characters/${settings.nikke.replace(':', '').replace(' ', '_')}.png`);
+	const image = new AttachmentBuilder(`${__dirname}/images/characters/${settings.nikke.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 	const embed = new EmbedBuilder()
-		.setAuthor({ name: settings.nikke, iconURL: `attachment://${settings.nikke.replace(':', '').replace(' ', '_')}.png` })
+		.setAuthor({ name: settings.nikke, iconURL: `attachment://${settings.nikke.replaceAll(':', '').replaceAll(' ', '_')}.png` })
 		.setTitle('Gear information')
 		.addFields(
 			{ name: 'General', value: `Type: ${settings.gear.gtype}\nTier: ${settings.gear.tier}\nLevel: ${settings.gear.lvl === -1 ? '`Select level`' : settings.gear.lvl}` })

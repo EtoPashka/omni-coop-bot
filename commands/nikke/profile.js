@@ -51,7 +51,7 @@ module.exports = {
 		// load required character images
 		let images = [];
 		for (let i = 0; i < charData.length; i++) {
-			const image = await Canvas.loadImage(`${__dirname}/images/characters/${charData[i].name.replace(':', '').replace(' ', '_')}.png`);
+			const image = await Canvas.loadImage(`${__dirname}/images/characters/${charData[i].name.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 			images.push(image);
 		}
 		// create image with bg
@@ -185,7 +185,7 @@ module.exports = {
 						// load required character images
 						images = [];
 						for (let k = 0; k < charData.length; k++) {
-							const image = await Canvas.loadImage(`${__dirname}/images/characters/${charData[k].name.replace(':', '').replace(' ', '_')}.png`);
+							const image = await Canvas.loadImage(`${__dirname}/images/characters/${charData[k].name.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 							images.push(image);
 						}
 						// create image with bg
