@@ -1,6 +1,6 @@
 {
 	"lbAttack": 19.8,
-	"bossWeakness": "Iron",
+	"bossWeakness": "Wind",
 	"baseAttack": [
 		{
 			"class": "Attacker",
@@ -16,6 +16,27 @@
 		}
 	],
 	"nikkeList": [
+		{
+			"name": "Anis: Sparkling Summer",
+			"class": "Supporter",
+			"code": "Electric",
+			"manufacturer": "Tetra",
+			"ammo": 5,
+			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 10 },
+			"skillMultipliers": { "s1": 6, "s2": 7, "burst": 10 },
+			"statMultipliers": [
+				{ "attribute": "ATK", "value": 10 },
+				{ "attribute": "Hit Rate", "value": 7 },
+				{ "attribute": "Max Ammunition Capacity", "value": -10 },
+				{ "attribute": "Critical Damage", "value": 4 },
+				{ "attribute": "Critical Rate", "value": 4 },
+				{ "attribute": "Charge Damage", "value": 0 },
+				{ "attribute": "Charge Speed", "value": 0 },
+				{ "attribute": "Energy Gauge", "value": 2 },
+				{ "attribute": "Reload Speed", "value": 10 }
+			],
+			"elemMultiplier": 1
+		},
 		{
 			"name": "Liter",
 			"class": "Supporter",
