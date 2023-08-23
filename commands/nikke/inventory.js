@@ -604,6 +604,7 @@ async function characterPage(interaction, userData, name, profile, rows) {
 	if (cube.length) {
 		cubeDesc += `**${cube.at(0).ctype} Cube** Lv. **${cube.at(0).lvl}**`;
 		const curCube = cubeData.cubes.find(c => c.ctype === cube.at(0).ctype);
+		console.log(cube.at(0));
 		if (gearStats.find(s => s.attribute === curCube.attribute)) {
 			gearStats.at(gearStats.findIndex(s => s.attribute === curCube.attribute)).value += curCube.values.at(cube.at(0).lvl - 1);
 		}
