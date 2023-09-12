@@ -28,17 +28,10 @@ module.exports = {
 					{ name: 'Global', value: 'Global' },
 					{ name: 'SEA', value: 'SEA' },
 				))
-		.addStringOption(option =>
+		.addBoleanOption(option =>
 			option
-				.setName('weakness')
-				.setDescription('Choose boss\' weakness')
-				.addChoices(
-					{ name: 'Fire', value: 'Fire' },
-					{ name: 'Water', value: 'Water' },
-					{ name: 'Iron', value: 'Iron' },
-					{ name: 'Wind', value: 'Wind' },
-					{ name: 'Electric', value: 'Electric' },
-				)),
+				.setName('elem_adv')
+				.setDescription('Elemental advantage active?')),
 
 	async autocomplete(interaction) {
 		const focusedOption = interaction.options.getFocused(true);
@@ -56,8 +49,7 @@ module.exports = {
 			return interaction.editReply({ content: `There is no Nikke named **${interaction.options.getString('name')}**!`, ephemeral: true }).catch((err) => console.log('ERROR IN TOP JS', err));
 		}
 		const server = interaction.options.getString('server');
-		const weakness = interaction.options.getString('weakness') ?? 'none';
-		const weakness_flag = nikkeList.find(n => n.name === name).code === weakness;
+		const weakness_flag = interaction.options.getBoolean('elem_adv') ?? false;
 		const users = await userInfo.find({
 			'characters.name': name,
 			server: server,
@@ -175,19 +167,19 @@ module.exports = {
 					return i.reply({ content: 'You can\'t interact with it, because you are not the one who used the command!', ephemeral: true }).catch((err) => console.log('ERROR IN TOP JS', err));
 				}
 				const userData = await userInfo.findOne({ _id: i.values[0] });
-				characterPage(i, name, closeButton, userData, weakness);
+				characterPage(i, name, closeButton, userData, weakness_flag);
 			}
 		});
 	},
 };
 
-async function characterPage(interaction, name, closeButton, userData, bossWeakness) {
+async function characterPage(interaction, name, closeButton, userData, weakness_flag) {
 	const exitRow = new ActionRowBuilder().addComponents(closeButton);
 	const nikke = userData.characters.find(c => c.name === name);
 	// loading character image
 	const image = new AttachmentBuilder(`${__dirname}/images/characters/${name.replaceAll(':', '').replaceAll(' ', '_')}.png`);
 	let description = '';
-	if (nikkeList.find(c => c.name === name).code === bossWeakness) {
+	if (weakness_flag) {
 		description += `PP: ${nikke.pp} [+${nikke.pp_elem}] (**${nikke.pp + nikke.pp_elem}**)\n`;
 	}
 	else { description += `PP: **${nikke.pp}** [+${nikke.pp_elem}] (${nikke.pp + nikke.pp_elem})\n`; }
