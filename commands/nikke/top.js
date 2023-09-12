@@ -1,6 +1,6 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder, StringSelectMenuBuilder, StringSelectMenuOptionBuilder, EmbedBuilder, AttachmentBuilder } = require('discord.js');
 const userInfo = require('./data/database.js');
-const { nikkeList, bossWeakness } = require('./data/chardata.json');
+const { nikkeList } = require('./data/chardata.json');
 const { gearSubs } = require('./data/geardata.json');
 const { cubeData } = require('./data/cubedata.json');
 // array of nikkes names
@@ -27,6 +27,17 @@ module.exports = {
 				.addChoices(
 					{ name: 'Global', value: 'Global' },
 					{ name: 'SEA', value: 'SEA' },
+				))
+		.addStringOption(option =>
+			option
+				.setName('weakness')
+				.setDescription('Choose boss\' weakness')
+				.addChoices(
+					{ name: 'Fire', value: 'Fire' },
+					{ name: 'Water', value: 'Water' },
+					{ name: 'Iron', value: 'Iron' },
+					{ name: 'Wind', value: 'Wind' },
+					{ name: 'Electric', value: 'Electric' },
 				)),
 
 	async autocomplete(interaction) {
@@ -45,6 +56,7 @@ module.exports = {
 			return interaction.editReply({ content: `There is no Nikke named **${interaction.options.getString('name')}**!`, ephemeral: true }).catch((err) => console.log('ERROR IN TOP JS', err));
 		}
 		const server = interaction.options.getString('server');
+		const weakness = interaction.options.getString('weakness') ?? 'none';
 		const users = await userInfo.find({
 			'characters.name': name,
 			server: server,
@@ -52,7 +64,6 @@ module.exports = {
 		if (!users.length) {
 			return interaction.editReply({ content: `Nobody has **${name}** in their account in ${server} :smiling_face_with_tear:` }).catch((err) => console.log('ERROR IN TOP JS', err));
 		}
-		const weakness = nikkeList.find(n => n.name === name).code === bossWeakness;
 		const data = users.map(u => {
 			const nikke = u.characters.find(n => n.name === name);
 			const pp = nikke.pp + (weakness ? nikke.pp_elem : 0);
@@ -163,13 +174,13 @@ module.exports = {
 					return i.reply({ content: 'You can\'t interact with it, because you are not the one who used the command!', ephemeral: true }).catch((err) => console.log('ERROR IN TOP JS', err));
 				}
 				const userData = await userInfo.findOne({ _id: i.values[0] });
-				characterPage(i, name, closeButton, userData);
+				characterPage(i, name, closeButton, userData, weakness);
 			}
 		});
 	},
 };
 
-async function characterPage(interaction, name, closeButton, userData) {
+async function characterPage(interaction, name, closeButton, userData, bossWeakness) {
 	const exitRow = new ActionRowBuilder().addComponents(closeButton);
 	const nikke = userData.characters.find(c => c.name === name);
 	// loading character image
