@@ -57,6 +57,7 @@ module.exports = {
 		}
 		const server = interaction.options.getString('server');
 		const weakness = interaction.options.getString('weakness') ?? 'none';
+		const weakness_flag = nikkeList.find(n => n.name === name).code === weakness;
 		const users = await userInfo.find({
 			'characters.name': name,
 			server: server,
@@ -66,7 +67,7 @@ module.exports = {
 		}
 		const data = users.map(u => {
 			const nikke = u.characters.find(n => n.name === name);
-			const pp = nikke.pp + (weakness ? nikke.pp_elem : 0);
+			const pp = nikke.pp + (weakness_flag ? nikke.pp_elem : 0);
 			return {
 				id: u._id,
 				name: u.name,
@@ -122,7 +123,7 @@ module.exports = {
 			.setDisabled(true);
 		const buttonRow = new ActionRowBuilder().addComponents(prevPage, descButton, nextPage, closeButton);
 		const menuRow = new ActionRowBuilder().addComponents(selectUser);
-		const elem_adv = `Elemental advantage is ${weakness ? '' : 'NOT '}active`;
+		const elem_adv = `Elemental advantage is ${weakness_flag ? '' : 'NOT '}active`;
 		const listEmbed = new EmbedBuilder()
 			.setTitle(`Top ${name} in ${server}`)
 			.setDescription(descriptions[current - 1])
