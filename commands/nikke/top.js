@@ -28,7 +28,7 @@ module.exports = {
 					{ name: 'Global', value: 'Global' },
 					{ name: 'SEA', value: 'SEA' },
 				))
-		.addBoleanOption(option =>
+		.addBooleanOption(option =>
 			option
 				.setName('elem_adv')
 				.setDescription('Elemental advantage active?')),
