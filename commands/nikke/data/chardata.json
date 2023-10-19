@@ -59,6 +59,48 @@
 			"elemMultiplier": 1
 		},
 		{
+			"name": "Naga",
+			"class": "Supporter",
+			"code": "Electric",
+			"manufacturer": "Missilis",
+			"ammo": 9,
+			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 7 },
+			"skillMultipliers": { "s1": 7, "s2": 6, "burst": 8 },
+			"statMultipliers": [
+				{ "attribute": "ATK", "value": 6 },
+				{ "attribute": "Hit Rate", "value": 3 },
+				{ "attribute": "Max Ammunition Capacity", "value": 6 },
+				{ "attribute": "Critical Damage", "value": 2 },
+				{ "attribute": "Critical Rate", "value": 2 },
+				{ "attribute": "Charge Damage", "value": 0 },
+				{ "attribute": "Charge Speed", "value": 0 },
+				{ "attribute": "Energy Gauge", "value": 2 },
+				{ "attribute": "Reload Speed", "value": 10 }
+			],
+			"elemMultiplier": 1
+		},
+		{
+			"name": "Tia",
+			"class": "Defender",
+			"code": "Iron",
+			"manufacturer": "Missilis",
+			"ammo": 6,
+			"powerMultipliers": { "skills": 10, "equip": 4, "stats": 10 },
+			"skillMultipliers": { "s1": 10, "s2": 2, "burst": 2 },
+			"statMultipliers": [
+				{ "attribute": "ATK", "value": 3 },
+				{ "attribute": "Hit Rate", "value": 0 },
+				{ "attribute": "Max Ammunition Capacity", "value": 10 },
+				{ "attribute": "Critical Damage", "value": 1 },
+				{ "attribute": "Critical Rate", "value": 1	 },
+				{ "attribute": "Charge Damage", "value": 0 },
+				{ "attribute": "Charge Speed", "value": 0 },
+				{ "attribute": "Energy Gauge", "value": 2 },
+				{ "attribute": "Reload Speed", "value": 10 }
+			],
+			"elemMultiplier": 1
+		},
+		{
 			"name": "Pepper",
 			"class": "Supporter",
 			"code": "Wind",
