@@ -227,6 +227,27 @@
 			"elemMultiplier": 1
 		},
 		{
+			"name": "Red Hood",
+			"class": "Attacker",
+			"code": "Iron",
+			"manufacturer": "Pilgrim",
+			"ammo": 6,
+			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 10 },
+			"skillMultipliers": { "s1":6, "s2": 8, "burst": 10 },
+			"statMultipliers": [
+				{ "attribute": "ATK", "value": 10 },
+				{ "attribute": "Hit Rate", "value": 0 },
+				{ "attribute": "Max Ammunition Capacity", "value": 5 },
+				{ "attribute": "Critical Damage", "value": 4 },
+				{ "attribute": "Critical Rate", "value": 4 },
+				{ "attribute": "Charge Damage", "value": 6 },
+				{ "attribute": "Charge Speed", "value": 7 },
+				{ "attribute": "Energy Gauge", "value": 2 },
+				{ "attribute": "Reload Speed", "value": 3 }
+			],
+			"elemMultiplier": 1
+		},
+		{
 			"name": "Drake",
 			"class": "Attacker",
 			"code": "Fire",
