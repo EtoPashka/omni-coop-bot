@@ -38,6 +38,48 @@
 			"elemMultiplier": 1
 		},
 		{
+			"name": "Scarlet: Black Shadow",
+			"class": "Attacker",
+			"code": "Wind",
+			"manufacturer": "Pilgrim",
+			"ammo": 9,
+			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 10 },
+			"skillMultipliers": { "s1": 10, "s2": 7, "burst": 10 },
+			"statMultipliers": [
+				{ "attribute": "ATK", "value": 10 },
+				{ "attribute": "Hit Rate", "value": 0 },
+				{ "attribute": "Max Ammunition Capacity", "value": 3 },
+				{ "attribute": "Critical Damage", "value": 4 },
+				{ "attribute": "Critical Rate", "value": 4 },
+				{ "attribute": "Charge Damage", "value": 4 },
+				{ "attribute": "Charge Speed", "value": 3 },
+				{ "attribute": "Energy Gauge", "value": 1 },
+				{ "attribute": "Reload Speed", "value": 3 }
+			],
+			"elemMultiplier": 1
+		},
+		{
+			"name": "Ludmilla: Winter Owner",
+			"class": "Attacker",
+			"code": "Water",
+			"manufacturer": "Tetra",
+			"ammo": 300,
+			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 10 },
+			"skillMultipliers": { "s1": 9, "s2": 7, "burst": 9 },
+			"statMultipliers": [
+				{ "attribute": "ATK", "value": 10 },
+				{ "attribute": "Hit Rate", "value": 0 },
+				{ "attribute": "Max Ammunition Capacity", "value": 10 },
+				{ "attribute": "Critical Damage", "value": 5 },
+				{ "attribute": "Critical Rate", "value": 3 },
+				{ "attribute": "Charge Damage", "value": 0 },
+				{ "attribute": "Charge Speed", "value": 0 },
+				{ "attribute": "Energy Gauge", "value": 1 },
+				{ "attribute": "Reload Speed", "value": 5 }
+			],
+			"elemMultiplier": 1
+		},
+		{
 			"name": "Liter",
 			"class": "Supporter",
 			"code": "Iron",
