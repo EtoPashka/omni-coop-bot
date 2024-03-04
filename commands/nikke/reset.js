@@ -28,8 +28,10 @@ module.exports = {
 			},
 			{ upsert: true });
 		} */
-		for (const user of users) {
-			const characters = user.characters;
+		// THIS IS FOR THE RESETING!!!!!
+		/* for (const user of users) {
+			const nikkes = nikkeList.map(n => n.name);
+			const characters = user.characters.filter(c => nikkes.includes(c.name));
 			// if (user.name === 'PASHA') { console.log(characters); }
 			for (const character of characters) {
 				const currentNikke = nikkeList.find(n => n.name === character.name);
@@ -46,7 +48,7 @@ module.exports = {
 			}, {
 				$set: { characters: characters },
 			}, {});
-		}
+		} */
 		return interaction.editReply('Done').catch((err) => console.log('err in reset', err));
 
 	},

@@ -23,10 +23,10 @@
 			"manufacturer": "Tetra",
 			"ammo": 5,
 			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 10 },
-			"skillMultipliers": { "s1": 6, "s2": 7, "burst": 10 },
+			"skillMultipliers": { "s1": 10, "s2": 10, "burst": 10 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 10 },
-				{ "attribute": "Hit Rate", "value": 7 },
+				{ "attribute": "Hit Rate", "value": 2 },
 				{ "attribute": "Max Ammunition Capacity", "value": -10 },
 				{ "attribute": "Critical Damage", "value": 4 },
 				{ "attribute": "Critical Rate", "value": 4 },
@@ -35,7 +35,7 @@
 				{ "attribute": "Energy Gauge", "value": 2 },
 				{ "attribute": "Reload Speed", "value": 10 }
 			],
-			"elemMultiplier": 1
+			"elemMultiplier": 0.9
 		},
 		{
 			"name": "Scarlet: Black Shadow",
@@ -52,7 +52,7 @@
 				{ "attribute": "Critical Damage", "value": 4 },
 				{ "attribute": "Critical Rate", "value": 4 },
 				{ "attribute": "Charge Damage", "value": 4 },
-				{ "attribute": "Charge Speed", "value": 3 },
+				{ "attribute": "Charge Speed", "value": 5 },
 				{ "attribute": "Energy Gauge", "value": 1 },
 				{ "attribute": "Reload Speed", "value": 3 }
 			],
@@ -71,11 +71,11 @@
 				{ "attribute": "Hit Rate", "value": 0 },
 				{ "attribute": "Max Ammunition Capacity", "value": 10 },
 				{ "attribute": "Critical Damage", "value": 5 },
-				{ "attribute": "Critical Rate", "value": 3 },
+				{ "attribute": "Critical Rate", "value": 4 },
 				{ "attribute": "Charge Damage", "value": 0 },
 				{ "attribute": "Charge Speed", "value": 0 },
 				{ "attribute": "Energy Gauge", "value": 1 },
-				{ "attribute": "Reload Speed", "value": 5 }
+				{ "attribute": "Reload Speed", "value": 10 }
 			],
 			"elemMultiplier": 1
 		},
@@ -89,7 +89,7 @@
 			"skillMultipliers": { "s1": 7, "s2": 0, "burst": 10 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 10 },
-				{ "attribute": "Hit Rate", "value": 4 },
+				{ "attribute": "Hit Rate", "value": 3 },
 				{ "attribute": "Max Ammunition Capacity", "value": 6 },
 				{ "attribute": "Critical Damage", "value": 3 },
 				{ "attribute": "Critical Rate", "value": 3 },
@@ -106,12 +106,12 @@
 			"code": "Electric",
 			"manufacturer": "Missilis",
 			"ammo": 9,
-			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 7 },
+			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 8 },
 			"skillMultipliers": { "s1": 7, "s2": 6, "burst": 8 },
 			"statMultipliers": [
-				{ "attribute": "ATK", "value": 6 },
-				{ "attribute": "Hit Rate", "value": 3 },
-				{ "attribute": "Max Ammunition Capacity", "value": 6 },
+				{ "attribute": "ATK", "value": 10 },
+				{ "attribute": "Hit Rate", "value": 5 },
+				{ "attribute": "Max Ammunition Capacity", "value": 7 },
 				{ "attribute": "Critical Damage", "value": 2 },
 				{ "attribute": "Critical Rate", "value": 2 },
 				{ "attribute": "Charge Damage", "value": 0 },
@@ -127,7 +127,7 @@
 			"code": "Iron",
 			"manufacturer": "Missilis",
 			"ammo": 6,
-			"powerMultipliers": { "skills": 10, "equip": 4, "stats": 10 },
+			"powerMultipliers": { "skills": 10, "equip": 4, "stats": 8 },
 			"skillMultipliers": { "s1": 10, "s2": 2, "burst": 2 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 3 },
@@ -143,48 +143,6 @@
 			"elemMultiplier": 1
 		},
 		{
-			"name": "Pepper",
-			"class": "Supporter",
-			"code": "Wind",
-			"manufacturer": "Missilis",
-			"ammo": 9,
-			"powerMultipliers": { "skills": 7, "equip": 9, "stats": 7 },
-			"skillMultipliers": { "s1": 10, "s2": 2, "burst": 8 },
-			"statMultipliers": [
-				{ "attribute": "ATK", "value": 10 },
-				{ "attribute": "Hit Rate", "value": 5 },
-				{ "attribute": "Max Ammunition Capacity", "value": -5 },
-				{ "attribute": "Critical Damage", "value": 3 },
-				{ "attribute": "Critical Rate", "value": 3 },
-				{ "attribute": "Charge Damage", "value": 0 },
-				{ "attribute": "Charge Speed", "value": 0 },
-				{ "attribute": "Energy Gauge", "value": 3 },
-				{ "attribute": "Reload Speed", "value": 8 }
-			],
-			"elemMultiplier": 0.8
-		},
-		{
-			"name": "Dolla",
-			"class": "Supporter",
-			"code": "Wind",
-			"manufacturer": "Tetra",
-			"ammo": 6,
-			"powerMultipliers": { "skills": 8, "equip": 4, "stats": 5 },
-			"skillMultipliers": { "s1": 10, "s2": 3, "burst": 3	},
-			"statMultipliers": [
-				{ "attribute": "ATK", "value": 5 },
-				{ "attribute": "Hit Rate", "value": 0 },
-				{ "attribute": "Max Ammunition Capacity", "value": 10 },
-				{ "attribute": "Critical Damage", "value": 2 },
-				{ "attribute": "Critical Rate", "value": 2 },
-				{ "attribute": "Charge Damage", "value": 0 },
-				{ "attribute": "Charge Speed", "value": 0 },
-				{ "attribute": "Energy Gauge", "value": 4 },
-				{ "attribute": "Reload Speed", "value": 7 }
-			],
-			"elemMultiplier": 1
-		},
-		{
 			"name": "Guilty",
 			"class": "Attacker",
 			"code": "Wind",
@@ -194,14 +152,14 @@
 			"skillMultipliers": { "s1": 10, "s2": 2, "burst": 4 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 9 },
-				{ "attribute": "Hit Rate", "value": 5 },
+				{ "attribute": "Hit Rate", "value": 4 },
 				{ "attribute": "Max Ammunition Capacity", "value": 10 },
 				{ "attribute": "Critical Damage", "value": 4 },
 				{ "attribute": "Critical Rate", "value": 4 },
 				{ "attribute": "Charge Damage", "value": 0 },
 				{ "attribute": "Charge Speed", "value": 0 },
 				{ "attribute": "Energy Gauge", "value": 1 },
-				{ "attribute": "Reload Speed", "value": 6 }
+				{ "attribute": "Reload Speed", "value": 10 }
 			],
 			"elemMultiplier": 1
 		},
@@ -227,44 +185,23 @@
 			"elemMultiplier": 1
 		},
 		{
-			"name": "Rupee",
-			"class": "Attacker",
-			"code": "Iron",
-			"manufacturer": "Tetra",
-			"ammo": 60,
-			"powerMultipliers": { "skills": 10, "equip": 9, "stats": 8 },
-			"skillMultipliers": { "s1": 1, "s2": 9, "burst": 10 },
-			"statMultipliers": [
-				{ "attribute": "ATK", "value": 10 },
-				{ "attribute": "Hit Rate", "value": 8 },
-				{ "attribute": "Max Ammunition Capacity", "value": 6 },
-				{ "attribute": "Critical Damage", "value": 3 },
-				{ "attribute": "Critical Rate", "value": 3 },
-				{ "attribute": "Charge Damage", "value": 0 },
-				{ "attribute": "Charge Speed", "value": 0 },
-				{ "attribute": "Energy Gauge", "value": 1 },
-				{ "attribute": "Reload Speed", "value": 4 }
-			],
-			"elemMultiplier": 1
-		},
-		{
 			"name": "Alice",
 			"class": "Attacker",
 			"code": "Fire",
 			"manufacturer": "Tetra",
 			"ammo": 6,
 			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 10 },
-			"skillMultipliers": { "s1": 8, "s2": 0, "burst": 10 },
+			"skillMultipliers": { "s1": 10, "s2": 0, "burst": 10 },
 			"statMultipliers": [
-				{ "attribute": "ATK", "value": 8 },
+				{ "attribute": "ATK", "value": 10 },
 				{ "attribute": "Hit Rate", "value": 0 },
 				{ "attribute": "Max Ammunition Capacity", "value": 10 },
 				{ "attribute": "Critical Damage", "value": 4 },
 				{ "attribute": "Critical Rate", "value": 4 },
-				{ "attribute": "Charge Damage", "value": 2 },
-				{ "attribute": "Charge Speed", "value": 3 },
+				{ "attribute": "Charge Damage", "value": 4 },
+				{ "attribute": "Charge Speed", "value": 7 },
 				{ "attribute": "Energy Gauge", "value": 1 },
-				{ "attribute": "Reload Speed", "value": 4 }
+				{ "attribute": "Reload Speed", "value": 8 }
 			],
 			"elemMultiplier": 1
 		},
@@ -285,49 +222,7 @@
 				{ "attribute": "Charge Damage", "value": 6 },
 				{ "attribute": "Charge Speed", "value": 7 },
 				{ "attribute": "Energy Gauge", "value": 2 },
-				{ "attribute": "Reload Speed", "value": 3 }
-			],
-			"elemMultiplier": 1
-		},
-		{
-			"name": "Drake",
-			"class": "Attacker",
-			"code": "Fire",
-			"manufacturer": "Missilis",
-			"ammo": 9,
-			"powerMultipliers": { "skills": 10, "equip": 9, "stats": 8 },
-			"skillMultipliers": { "s1": 10, "s2": 4, "burst": 6 },
-			"statMultipliers": [
-				{ "attribute": "ATK", "value": 10 },
-				{ "attribute": "Hit Rate", "value": 6 },
-				{ "attribute": "Max Ammunition Capacity", "value": 8 },
-				{ "attribute": "Critical Damage", "value": 3 },
-				{ "attribute": "Critical Rate", "value": 3 },
-				{ "attribute": "Charge Damage", "value": 0 },
-				{ "attribute": "Charge Speed", "value": 0 },
-				{ "attribute": "Energy Gauge", "value": 2 },
-				{ "attribute": "Reload Speed", "value": 8 }
-			],
-			"elemMultiplier": 1
-		},
-		{
-			"name": "Helm",
-			"class": "Attacker",
-			"code": "Water",
-			"manufacturer": "Elysion",
-			"ammo": 6,
-			"powerMultipliers": { "skills": 8, "equip": 7, "stats": 5 },
-			"skillMultipliers": { "s1": 2, "s2": 2, "burst": 1 },
-			"statMultipliers": [
-				{ "attribute": "ATK", "value": 6 },
-				{ "attribute": "Hit Rate", "value": 0 },
-				{ "attribute": "Max Ammunition Capacity", "value": -2 },
-				{ "attribute": "Critical Damage", "value": 2 },
-				{ "attribute": "Critical Rate", "value": 2 },
-				{ "attribute": "Charge Damage", "value": 0 },
-				{ "attribute": "Charge Speed", "value": 0 },
-				{ "attribute": "Energy Gauge", "value": 4 },
-				{ "attribute": "Reload Speed", "value": 10 }
+				{ "attribute": "Reload Speed", "value": 5 }
 			],
 			"elemMultiplier": 1
 		},
@@ -342,13 +237,13 @@
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 10 },
 				{ "attribute": "Hit Rate", "value": 0 },
-				{ "attribute": "Max Ammunition Capacity", "value": 5 },
+				{ "attribute": "Max Ammunition Capacity", "value": 8 },
 				{ "attribute": "Critical Damage", "value": 5 },
 				{ "attribute": "Critical Rate", "value": 5 },
 				{ "attribute": "Charge Damage", "value": 3 },
 				{ "attribute": "Charge Speed", "value": 0 },
 				{ "attribute": "Energy Gauge", "value": 3 },
-				{ "attribute": "Reload Speed", "value": 5 }
+				{ "attribute": "Reload Speed", "value": 7 }
 			],
 			"elemMultiplier": 1
 		},
@@ -358,7 +253,7 @@
 			"code": "Fire",
 			"manufacturer": "Pilgrim",
 			"ammo": 300,
-			"powerMultipliers": { "skills": 9, "equip": 10, "stats": 10 },
+			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 10 },
 			"skillMultipliers": { "s1": 10, "s2": 10, "burst": 0 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 10 },
@@ -380,13 +275,13 @@
 			"manufacturer": "Elysion",
 			"ammo": 60,
 			"powerMultipliers": { "skills": 10, "equip": 7, "stats": 5 },
-			"skillMultipliers": { "s1": 10, "s2": 3, "burst": 0 },
+			"skillMultipliers": { "s1": 10, "s2": 4, "burst": 1 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 10 },
-				{ "attribute": "Hit Rate", "value": 7 },
+				{ "attribute": "Hit Rate", "value": 2 },
 				{ "attribute": "Max Ammunition Capacity", "value": -5 },
-				{ "attribute": "Critical Damage", "value": 3 },
-				{ "attribute": "Critical Rate", "value": 3 },
+				{ "attribute": "Critical Damage", "value": 4 },
+				{ "attribute": "Critical Rate", "value": 4 },
 				{ "attribute": "Charge Damage", "value": 0 },
 				{ "attribute": "Charge Speed", "value": 0 },
 				{ "attribute": "Energy Gauge", "value": 1 },
@@ -401,13 +296,13 @@
 			"manufacturer": "Pilgrim",
 			"ammo": 20,
 			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 10 },
-			"skillMultipliers": { "s1": 10, "s2": 0, "burst": 3 },
+			"skillMultipliers": { "s1": 10, "s2": 1, "burst": 5 },
 			"statMultipliers": [
-				{ "attribute": "ATK", "value": 8 },
-				{ "attribute": "Hit Rate", "value": 9 },
+				{ "attribute": "ATK", "value": 9 },
+				{ "attribute": "Hit Rate", "value": 5 },
 				{ "attribute": "Max Ammunition Capacity", "value": 10 },
-				{ "attribute": "Critical Damage", "value": 4 },
-				{ "attribute": "Critical Rate", "value": 4 },
+				{ "attribute": "Critical Damage", "value": 5 },
+				{ "attribute": "Critical Rate", "value": 5 },
 				{ "attribute": "Charge Damage", "value": 0 },
 				{ "attribute": "Charge Speed", "value": 0 },
 				{ "attribute": "Energy Gauge", "value": 1 },
@@ -422,15 +317,15 @@
 			"manufacturer": "Pilgrim",
 			"ammo": 60,
 			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 10 },
-			"skillMultipliers": { "s1": 1, "s2": 4, "burst": 10 },
+			"skillMultipliers": { "s1": 2, "s2": 7, "burst": 10 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 10 },
 				{ "attribute": "Hit Rate", "value": 1 },
 				{ "attribute": "Max Ammunition Capacity", "value": 2 },
-				{ "attribute": "Critical Damage", "value": 6 },
-				{ "attribute": "Critical Rate", "value": 6 },
+				{ "attribute": "Critical Damage", "value": 7 },
+				{ "attribute": "Critical Rate", "value": 7 },
 				{ "attribute": "Charge Damage", "value": 2 },
-				{ "attribute": "Charge Speed", "value": 0 },
+				{ "attribute": "Charge Speed", "value": 1 },
 				{ "attribute": "Energy Gauge", "value": 1 },
 				{ "attribute": "Reload Speed", "value": 0 }
 			],
@@ -443,19 +338,19 @@
 			"manufacturer": "Pilgrim",
 			"ammo": 60,
 			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 10 },
-			"skillMultipliers": { "s1": 10, "s2": 4, "burst": 6 },
+			"skillMultipliers": { "s1": 10, "s2": 7, "burst": 10 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 10 },
-				{ "attribute": "Hit Rate", "value": 6 },
-				{ "attribute": "Max Ammunition Capacity", "value": -8 },
-				{ "attribute": "Critical Damage", "value": 2 },
-				{ "attribute": "Critical Rate", "value": 2 },
+				{ "attribute": "Hit Rate", "value": 3 },
+				{ "attribute": "Max Ammunition Capacity", "value": -10 },
+				{ "attribute": "Critical Damage", "value": 3 },
+				{ "attribute": "Critical Rate", "value": 3 },
 				{ "attribute": "Charge Damage", "value": 0 },
 				{ "attribute": "Charge Speed", "value": 0 },
 				{ "attribute": "Energy Gauge", "value": 1 },
-				{ "attribute": "Reload Speed", "value": 3 }
+				{ "attribute": "Reload Speed", "value": 7 }
 			],
-			"elemMultiplier": 0.34
+			"elemMultiplier": 0.5
 		},
 		{
 			"name": "Yulha",
@@ -485,10 +380,10 @@
 			"manufacturer": "Tetra",
 			"ammo": 60,
 			"powerMultipliers": { "skills": 10, "equip": 3, "stats": 3 },
-			"skillMultipliers": { "s1": 0, "s2": 1, "burst": 10 },
+			"skillMultipliers": { "s1": 2, "s2": 2, "burst": 10 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 10 },
-				{ "attribute": "Hit Rate", "value": 6 },
+				{ "attribute": "Hit Rate", "value": 4 },
 				{ "attribute": "Max Ammunition Capacity", "value": 6 },
 				{ "attribute": "Critical Damage", "value": 3 },
 				{ "attribute": "Critical Rate", "value": 3 },
@@ -509,56 +404,77 @@
 			"skillMultipliers": { "s1": 10, "s2": 10, "burst": 5 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 10 },
-				{ "attribute": "Hit Rate", "value": 3 },
-				{ "attribute": "Max Ammunition Capacity", "value": 4 },
-				{ "attribute": "Critical Damage", "value": 3 },
-				{ "attribute": "Critical Rate", "value": 3 },
+				{ "attribute": "Hit Rate", "value": 4 },
+				{ "attribute": "Max Ammunition Capacity", "value": 6 },
+				{ "attribute": "Critical Damage", "value": 5 },
+				{ "attribute": "Critical Rate", "value": 5 },
 				{ "attribute": "Charge Damage", "value": 0 },
 				{ "attribute": "Charge Speed", "value": 0 },
-				{ "attribute": "Energy Gauge", "value": 1 },
-				{ "attribute": "Reload Speed", "value": 4 }
+				{ "attribute": "Energy Gauge", "value": 2 },
+				{ "attribute": "Reload Speed", "value": 6 }
 			],
 			"elemMultiplier": 1
 		},
 		{
-			"name": "Viper",
-			"class": "Attacker",
+			"name": "Tove",
+			"class": "Supporter",
+			"code": "Water",
+			"manufacturer": "Missilis",
+			"ammo": 60,
+			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 7 },
+			"skillMultipliers": { "s1": 9, "s2": 10, "burst": 10 },
+			"statMultipliers": [
+				{ "attribute": "ATK", "value": 10 },
+				{ "attribute": "Hit Rate", "value": 3 },
+				{ "attribute": "Max Ammunition Capacity", "value": 7 },
+				{ "attribute": "Critical Damage", "value": 4 },
+				{ "attribute": "Critical Rate", "value": 4 },
+				{ "attribute": "Charge Damage", "value": 0 },
+				{ "attribute": "Charge Speed", "value": 0 },
+				{ "attribute": "Energy Gauge", "value": 2 },
+				{ "attribute": "Reload Speed", "value": 7 }
+			],
+			"elemMultiplier": 1
+		},
+		{
+			"name": "Leona",
+			"class": "Supporter",
 			"code": "Water",
 			"manufacturer": "Tetra",
 			"ammo": 9,
-			"powerMultipliers": { "skills": 4, "equip": 10, "stats": 10 },
-			"skillMultipliers": { "s1": 1, "s2": 2, "burst": 10 },
+			"powerMultipliers": { "skills": 10, "equip": 8, "stats": 8 },
+			"skillMultipliers": { "s1": 5, "s2": 7, "burst": 7 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 10 },
-				{ "attribute": "Hit Rate", "value": 6 },
-				{ "attribute": "Max Ammunition Capacity", "value": 10 },
-				{ "attribute": "Critical Damage", "value": 4 },
-				{ "attribute": "Critical Rate", "value": 4 },
+				{ "attribute": "Hit Rate", "value": 4 },
+				{ "attribute": "Max Ammunition Capacity", "value": 6 },
+				{ "attribute": "Critical Damage", "value": 5 },
+				{ "attribute": "Critical Rate", "value": 3 },
 				{ "attribute": "Charge Damage", "value": 0 },
 				{ "attribute": "Charge Speed", "value": 0 },
-				{ "attribute": "Energy Gauge", "value": 1 },
-				{ "attribute": "Reload Speed", "value": 10 }
+				{ "attribute": "Energy Gauge", "value": 2 },
+				{ "attribute": "Reload Speed", "value": 6 }
 			],
 			"elemMultiplier": 1
 		},
 		{
-			"name": "Helm: Aquamarine",
+			"name": "Privaty: Unkind Maid",
 			"class": "Attacker",
-			"code": "Iron",
+			"code": "Electric",
 			"manufacturer": "Elysion",
-			"ammo": 60,
-			"powerMultipliers": { "skills": 10, "equip": 5, "stats": 5 },
-			"skillMultipliers": { "s1": 2, "s2": 10, "burst": 2 },
+			"ammo": 9,
+			"powerMultipliers": { "skills": 8, "equip": 10, "stats": 10 },
+			"skillMultipliers": { "s1": 8, "s2": 10, "burst": 10 },
 			"statMultipliers": [
 				{ "attribute": "ATK", "value": 10 },
-				{ "attribute": "Hit Rate", "value": 7 },
-				{ "attribute": "Max Ammunition Capacity", "value": 10 },
+				{ "attribute": "Hit Rate", "value": 3 },
+				{ "attribute": "Max Ammunition Capacity", "value": 6 },
 				{ "attribute": "Critical Damage", "value": 4 },
-				{ "attribute": "Critical Rate", "value": 4 },
+				{ "attribute": "Critical Rate", "value": 5 },
 				{ "attribute": "Charge Damage", "value": 0 },
 				{ "attribute": "Charge Speed", "value": 0 },
-				{ "attribute": "Energy Gauge", "value": 1 },
-				{ "attribute": "Reload Speed", "value": 4 }
+				{ "attribute": "Energy Gauge", "value": 2 },
+				{ "attribute": "Reload Speed", "value": 6 }
 			],
 			"elemMultiplier": 1
 		}
