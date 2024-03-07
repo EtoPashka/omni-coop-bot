@@ -477,6 +477,27 @@
 				{ "attribute": "Reload Speed", "value": 6 }
 			],
 			"elemMultiplier": 1
+		},
+		{
+			"name": "D: Killer Wife",
+			"class": "Supporter",
+			"code": "Fire",
+			"manufacturer": "Elysion",
+			"ammo": 6,
+			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 8 },
+			"skillMultipliers": { "s1": 5, "s2": 10, "burst": 7 },
+			"statMultipliers": [
+				{ "attribute": "ATK", "value": 6 },
+				{ "attribute": "Hit Rate", "value": 0 },
+				{ "attribute": "Max Ammunition Capacity", "value": 10 },
+				{ "attribute": "Critical Damage", "value": 4 },
+				{ "attribute": "Critical Rate", "value": 2 },
+				{ "attribute": "Charge Damage", "value": 2 },
+				{ "attribute": "Charge Speed", "value": 8 },
+				{ "attribute": "Energy Gauge", "value": 4 },
+				{ "attribute": "Reload Speed", "value": 10 }
+			],
+			"elemMultiplier": 1
 		}
 	]
 }
