@@ -17,6 +17,27 @@
 	],
 	"nikkeList": [
 		{
+			"name": "Crown",
+			"class": "Defender",
+			"code": "Iron",
+			"manufacturer": "Pilgrim",
+			"ammo": 300,
+			"powerMultipliers": { "skills": 10, "equip": 10, "stats": 8 },
+			"skillMultipliers": { "s1": 10, "s2": 10, "burst": 10 },
+			"statMultipliers": [
+				{ "attribute": "ATK", "value": 10 },
+				{ "attribute": "Hit Rate", "value": 0 },
+				{ "attribute": "Max Ammunition Capacity", "value": 10 },
+				{ "attribute": "Critical Damage", "value": 3 },
+				{ "attribute": "Critical Rate", "value": 3 },
+				{ "attribute": "Charge Damage", "value": 0 },
+				{ "attribute": "Charge Speed", "value": 0 },
+				{ "attribute": "Energy Gauge", "value": 1 },
+				{ "attribute": "Reload Speed", "value": 10 }
+			],
+			"elemMultiplier": 1
+		},
+		{
 			"name": "Anis: Sparkling Summer",
 			"class": "Supporter",
 			"code": "Electric",
