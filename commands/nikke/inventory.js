@@ -24,7 +24,7 @@ module.exports = {
 		let invData = listedCharacters(userData);
 		// home page button
 		const homeButton = new ButtonBuilder()
-			.setEmoji('1106561343844274186')
+			.setLabel('Home')
 			.setCustomId('inv-home')
 			.setStyle(ButtonStyle.Secondary);
 		// buttons and menu for home page
